@@ -8,17 +8,41 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 05 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://icy-thought.github.io/Blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>&#34;Disclaimer of liability&#34;</title>
+      <link>https://icy-thought.github.io/Blog/disclaimer/</link>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://icy-thought.github.io/Blog/disclaimer/</guid>
+      <description>Disclaimer of liability  The material and information presented on the following blog of mine is intended for general information purposes only. Henceforth, the reader should not rely upon the material or information on this blog as a basis for making any business, legal or any other decisions.
+ Whilst I endeavour to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services or related graphics contained on my personal blog for any purpose.</description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Disclaimer of liability
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;The material and information presented on the following blog of mine is intended for general information purposes only. Henceforth, the reader should not rely upon the material or information on this blog as a basis for making any business, legal or any other decisions.&lt;/p&gt;
+&lt;p&gt;
+Whilst I endeavour to keep the information up to date and correct, I make no representations or warranties of any kind, express or implied about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services or related graphics contained on my personal blog for any purpose. Any reliance you place on such material is therefore strictly at your own risk.&lt;/p&gt;
+&lt;p&gt;
+I will not be liable for any false, inaccurate, inappropriate or incomplete information presented on my personal blog.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>https://icy-thought.github.io/Blog/about/</link>
       <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/about/</guid>
-      <description> About Me  A person interested in the development of software and the invention of generalized solutions to reduce the amount of effort required to complete a certain task.
-  I use Arch Btw!    </description>
+      <description> About Me (I use Arch BTW!🚀)  A person interested in the development of software and the invention of generalized solutions to reduce the amount of effort required to complete a certain task.
+  Workspace    </description>
       <content>
 &lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
 &lt;h2 id=&#34;headline-1&#34;&gt;
-About Me
+About Me (I use Arch BTW!🚀)
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;p&gt;A person interested in the development of software and the invention of generalized solutions to reduce the amount of effort required to complete a certain task.&lt;/p&gt;
@@ -26,10 +50,10 @@ About Me
 &lt;/div&gt;
 &lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
 &lt;h2 id=&#34;headline-2&#34;&gt;
-I use Arch Btw!
+Workspace
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;&lt;img src=&#34;./images/desktop.png&#34; alt=&#34;./images/desktop.png&#34; title=&#34;./images/desktop.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./static/desktop.png&#34; alt=&#34;./static/desktop.png&#34; title=&#34;./static/desktop.png&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content>
