@@ -8,34 +8,9 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 05 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://icy-thought.github.io/Blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Welcome To My Blog!</title>
-      <link>https://icy-thought.github.io/Blog/posts/welcome/</link>
-      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://icy-thought.github.io/Blog/posts/welcome/</guid>
-      <description> Linux Journey From East -&amp;gt; West  This blog is an archive to document the issues encountered throughtout the years of my Linux usage. Hopefully someone will be able to benefit from reading these files and hopefully even manage to resolve an issue which have been bugging for quite some time.
-  Enjoy your read!   </description>
-      <content>
-&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-1&#34;&gt;
-Linux Journey From East -&amp;gt; West
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;This blog is an archive to document the issues encountered throughtout the years of my Linux usage. Hopefully someone will be able to benefit from reading these files and hopefully even manage to resolve an issue which have been bugging for quite some time.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-2&#34;&gt;
-Enjoy your read!
-&lt;/h2&gt;
-&lt;/div&gt;
-</content>
-    </item>
-    
-    <item>
       <title>Add Cover to PDF</title>
       <link>https://icy-thought.github.io/Blog/posts/add-cover-to-pdf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/posts/add-cover-to-pdf/</guid>
       <description> Procedure  First, convert image.jpg to image.pdf through:
@@ -64,7 +39,7 @@ Second, combine &lt;code class=&#34;verbatim&#34;&gt;image.pdf&lt;/code&gt; with
     <item>
       <title>Baloo File 100% Cpu Usage</title>
       <link>https://icy-thought.github.io/Blog/posts/baloo-file-100-cpu-usage/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/posts/baloo-file-100-cpu-usage/</guid>
       <description>Issue  When encountering this issue the computer will start using the CPU to it&amp;#39;s maximum potential which will make the fans noisy and therefore the computer usage experience terrible.
@@ -100,7 +75,7 @@ Happy Linuxing!&lt;/p&gt;
     <item>
       <title>Fcitx Sogoupinyin Endless Loop</title>
       <link>https://icy-thought.github.io/Blog/posts/fcitx-sogoupinyin-endless-loop/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/posts/fcitx-sogoupinyin-endless-loop/</guid>
       <description>Getting Started  Are you a Chinese speaking person? A person planning on learning Chinese digitally? Did you download Fcitx and set it up to the point that you started the download for the package fcitx-sogoupinyin but ended up in an endless loop where you started wondering whether there was an endless reoccurring loop of errors but didn&amp;#39;t believe your gut feelings?
@@ -136,7 +111,7 @@ The solution to the problem is very simple and goes like this:&lt;/p&gt;
     <item>
       <title>Fish Solutions</title>
       <link>https://icy-thought.github.io/Blog/posts/fish-solutions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/posts/fish-solutions/</guid>
       <description> Rustup  Exporting cargo in ~/.config/fish/config.fish:
@@ -159,7 +134,7 @@ Rustup
     <item>
       <title>LeagueClient Could Not Be Found...</title>
       <link>https://icy-thought.github.io/Blog/posts/leagueclient-could-not-be-found/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/posts/leagueclient-could-not-be-found/</guid>
       <description>LeagueClient.exe could not be found!  This tutorial is written for Arch Linux users and should be followed with caution!
@@ -249,7 +224,7 @@ Enjoy playing League!
     <item>
       <title>Merger of Home and Root Into a Unified Partition</title>
       <link>https://icy-thought.github.io/Blog/posts/merger-of-home-and-root-into-a-unified-partition/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/posts/merger-of-home-and-root-into-a-unified-partition/</guid>
       <description>First and Foremost…  I am not responsible over whatever shit that might occur during your migration process. What I am doing in this guide is documenting the process of the migration for my two previous partitions into one unified partition for the sake of seeking this guide when required.
@@ -480,7 +455,7 @@ Good Job!
     <item>
       <title>Setup Systemd Resolve</title>
       <link>https://icy-thought.github.io/Blog/posts/setup-systemd-resolve/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/posts/setup-systemd-resolve/</guid>
       <description> Procedure    Edit /etc/systemd/resolved.conf by adding the valuable bits (dns, fallback dns)
@@ -518,7 +493,7 @@ Procedure
     <item>
       <title>Solving Random Network Disconnect</title>
       <link>https://icy-thought.github.io/Blog/posts/solving-random-network-disconnect/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/posts/solving-random-network-disconnect/</guid>
       <description>Cause?  Weird Power-saving mode enabled by default, which causes Fn-key to not disable light after being disabled + random network disconnection + bluetooth not enabling after being disabled although rfkill list shows no presence of soft kill.
@@ -576,7 +551,7 @@ Performance Mode
     <item>
       <title>Switching From Deepin to KDE</title>
       <link>https://icy-thought.github.io/Blog/posts/switching-from-deepin-to-kde/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/posts/switching-from-deepin-to-kde/</guid>
       <description>Switching from Deepin DE to KDE  This tutorial is written for Arch Linux users and should be followed with caution!
@@ -673,6 +648,31 @@ Uninstall Packages of Current DE
 &lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-2&#34;&gt;
 &lt;h2 id=&#34;headline-7&#34;&gt;
 Congratulations! You have just successfully installed KDE display manager and removed Deepin DE!
+&lt;/h2&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Welcome To My Blog!</title>
+      <link>https://icy-thought.github.io/Blog/posts/welcome/</link>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://icy-thought.github.io/Blog/posts/welcome/</guid>
+      <description> Linux Journey From East -&amp;gt; West  This blog is an archive to document the issues encountered throughtout the years of my Linux usage. Hopefully someone will be able to benefit from reading these files and hopefully even manage to resolve an issue which have been bugging for quite some time.
+  Enjoy your read!   </description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Linux Journey From East -&amp;gt; West
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;This blog is an archive to document the issues encountered throughtout the years of my Linux usage. Hopefully someone will be able to benefit from reading these files and hopefully even manage to resolve an issue which have been bugging for quite some time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Enjoy your read!
 &lt;/h2&gt;
 &lt;/div&gt;
 </content>

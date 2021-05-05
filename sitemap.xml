@@ -2,7 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://icy-thought.github.io/Blog/posts/add-cover-to-pdf/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://icy-thought.github.io/Blog/posts/baloo-file-100-cpu-usage/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://icy-thought.github.io/Blog/posts/fcitx-sogoupinyin-endless-loop/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://icy-thought.github.io/Blog/posts/fish-solutions/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://icy-thought.github.io/Blog/posts/leagueclient-could-not-be-found/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://icy-thought.github.io/Blog/posts/merger-of-home-and-root-into-a-unified-partition/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://icy-thought.github.io/Blog/posts/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://icy-thought.github.io/Blog/posts/setup-systemd-resolve/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://icy-thought.github.io/Blog/posts/solving-random-network-disconnect/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://icy-thought.github.io/Blog/posts/switching-from-deepin-to-kde/</loc>
     <lastmod>2021-05-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://icy-thought.github.io/Blog/</loc>
@@ -11,25 +38,7 @@
     <loc>https://icy-thought.github.io/Blog/posts/welcome/</loc>
     <lastmod>2021-05-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://icy-thought.github.io/Blog/posts/add-cover-to-pdf/</loc>
-  </url><url>
-    <loc>https://icy-thought.github.io/Blog/posts/baloo-file-100-cpu-usage/</loc>
-  </url><url>
     <loc>https://icy-thought.github.io/Blog/categories/</loc>
-  </url><url>
-    <loc>https://icy-thought.github.io/Blog/posts/fcitx-sogoupinyin-endless-loop/</loc>
-  </url><url>
-    <loc>https://icy-thought.github.io/Blog/posts/fish-solutions/</loc>
-  </url><url>
-    <loc>https://icy-thought.github.io/Blog/posts/leagueclient-could-not-be-found/</loc>
-  </url><url>
-    <loc>https://icy-thought.github.io/Blog/posts/merger-of-home-and-root-into-a-unified-partition/</loc>
-  </url><url>
-    <loc>https://icy-thought.github.io/Blog/posts/setup-systemd-resolve/</loc>
-  </url><url>
-    <loc>https://icy-thought.github.io/Blog/posts/solving-random-network-disconnect/</loc>
-  </url><url>
-    <loc>https://icy-thought.github.io/Blog/posts/switching-from-deepin-to-kde/</loc>
   </url><url>
     <loc>https://icy-thought.github.io/Blog/tags/</loc>
   </url>
