@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/posts/add-cover-to-pdf/</loc>
+  </url><url>
+    <loc>/posts/baloo-file-100-cpu-usage/</loc>
+  </url><url>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/posts/fcitx-sogoupinyin-endless-loop/</loc>
+  </url><url>
+    <loc>/posts/fish-solutions/</loc>
+  </url><url>
+    <loc>/posts/leagueclient-could-not-be-found/</loc>
+  </url><url>
+    <loc>/posts/merger-of-home-and-root-into-a-unified-partition/</loc>
+  </url><url>
+    <loc>/posts/</loc>
+  </url><url>
+    <loc>/posts/setup-systemd-resolve/</loc>
+  </url><url>
+    <loc>/posts/solving-random-network-disconnect/</loc>
+  </url><url>
+    <loc>/posts/switching-from-deepin-to-kde/</loc>
+  </url><url>
+    <loc>/tags/</loc>
+  </url><url>
+    <loc>/</loc>
+  </url><url>
+    <loc>/posts/welcome/</loc>
+  </url>
+</urlset>

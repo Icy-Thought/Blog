@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Journal of Icy-Thought</title>
+    <link>/</link>
+    <description>Recent content on The Journal of Icy-Thought</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add Cover to PDF</title>
+      <link>/posts/add-cover-to-pdf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/add-cover-to-pdf/</guid>
+      <description> Procedure  First, convert image.jpg to image.pdf through:
+convert image.jpg image.pdf   Second, combine image.pdf with input.pdf to produce output.pdf through:
+pdfunite image.pdf input.pdf output.pdf    </description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Procedure
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;First, convert &lt;code class=&#34;verbatim&#34;&gt;image.jpg&lt;/code&gt; to &lt;code class=&#34;verbatim&#34;&gt;image.pdf&lt;/code&gt; through:&lt;/p&gt;
+&lt;div class=&#34;src src-bash&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;convert image.jpg image.pdf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+Second, combine &lt;code class=&#34;verbatim&#34;&gt;image.pdf&lt;/code&gt; with &lt;code class=&#34;verbatim&#34;&gt;input.pdf&lt;/code&gt; to produce &lt;code class=&#34;verbatim&#34;&gt;output.pdf&lt;/code&gt; through:&lt;/p&gt;
+&lt;div class=&#34;src src-bash&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pdfunite image.pdf input.pdf output.pdf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Baloo File 100% Cpu Usage</title>
+      <link>/posts/baloo-file-100-cpu-usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/baloo-file-100-cpu-usage/</guid>
+      <description>Issue  When encountering this issue the computer will start using the CPU to it&amp;#39;s maximum potential which will make the fans noisy and therefore the computer usage experience terrible.
+  Solution  To fix this issue you could either run balooctl disable and later remove the indexing file, created by baloo_file_index, or you could edit ~/.config/baloofilerc and append the following lines to the end of the configuration file:</description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Issue
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;When encountering this issue the computer will start using the CPU to it&amp;#39;s maximum potential which will make the fans noisy and therefore the computer usage experience terrible.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Solution
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;To fix this issue you could either run &lt;code&gt;balooctl disable&lt;/code&gt; and later remove the indexing file, created by baloo_file_index, or you could edit &lt;code class=&#34;verbatim&#34;&gt;~/.config/baloofilerc&lt;/code&gt; and append the following lines to the end of the configuration file:&lt;/p&gt;
+&lt;div class=&#34;src src-text&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;[General]
+only basic indexing=true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+Most KDE users have a pre-existing &lt;code&gt;[General]&lt;/code&gt; section and therefore appending &lt;code&gt;only basic indexing=true&lt;/code&gt; to the end of that section is enough.&lt;/p&gt;
+&lt;p&gt;
+Happy Linuxing!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Fcitx Sogoupinyin Endless Loop</title>
+      <link>/posts/fcitx-sogoupinyin-endless-loop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/fcitx-sogoupinyin-endless-loop/</guid>
+      <description>Getting Started  Are you a Chinese speaking person? A person planning on learning Chinese digitally? Did you download Fcitx and set it up to the point that you started the download for the package fcitx-sogoupinyin but ended up in an endless loop where you started wondering whether there was an endless reoccurring loop of errors but didn&amp;#39;t believe your gut feelings?
+ Well, I am here to confirm what you are feeling and of course, this is not the ultimate solution to the problem because what you might be facing could be something totally different than the problem I had which was an endless loop of building Qtwebkit, which is a package that is needed for fcitx-sogoupinyin to be installed.</description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Getting Started
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;Are you a Chinese speaking person? A person planning on learning Chinese digitally? Did you download Fcitx and set it up to the point that you started the download for the package fcitx-sogoupinyin but ended up in an endless loop where you started wondering whether there was an endless reoccurring loop of errors but didn&amp;#39;t believe your gut feelings?&lt;/p&gt;
+&lt;p&gt;
+Well, I am here to confirm what you are feeling and of course, this is not the ultimate solution to the problem because what you might be facing could be something totally different than the problem I had which was an endless loop of building Qtwebkit, which is a package that is needed for fcitx-sogoupinyin to be installed.&lt;/p&gt;
+&lt;p&gt;
+The solution to the problem is very simple and goes like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Cancel the current running installation for fcitx-sogoupinyin by clicking on &lt;code&gt;CTRL + C&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install Qtwebkit-bin package from AUR.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reinstall fcitx-sogoupinyin.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;That should solve the problem for you! Hope you enjoy your time learning/using the package :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Fish Solutions</title>
+      <link>/posts/fish-solutions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/fish-solutions/</guid>
+      <description> Rustup  Exporting cargo in ~/.config/fish/config.fish:
+set PATH $HOME/.cargo/bin $PATH    </description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Rustup
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/rust-lang/rustup/issues/478#issuecomment-331625472&#34;&gt;Exporting &lt;code&gt;cargo&lt;/code&gt; in &lt;code class=&#34;verbatim&#34;&gt;~/.config/fish/config.fish&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&#34;src src-fish&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fish&#34; data-lang=&#34;fish&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;set&lt;/span&gt; PATH $HOME/.cargo/bin $PATH&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>LeagueClient Could Not Be Found...</title>
+      <link>/posts/leagueclient-could-not-be-found/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/leagueclient-could-not-be-found/</guid>
+      <description>LeagueClient.exe could not be found!  This tutorial is written for Arch Linux users and should be followed with caution!
+Getting Started  Using Arch Linux as your first distro can be painful sometimes, especially when you don&amp;#39;t know your way around the system. You can get lost, depressed and even want to through your PC/Laptop from the 8 floor to make sure it doesn&amp;#39;t survive. Although you can reach this certain point, you sure wouldn&amp;#39;t commit suicide after having a Windows 10 update running for 1 day making all your work delayed!</description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+LeagueClient.exe could not be found!
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;This tutorial is written for Arch Linux users and should be followed with caution!&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-2&#34;&gt;
+Getting Started
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;Using Arch Linux as your first distro can be painful sometimes, especially when you don&amp;#39;t know your way around the system. You can get lost, depressed and even want to through your PC/Laptop from the 8 floor to make sure it doesn&amp;#39;t survive. Although you can reach this certain point, you sure wouldn&amp;#39;t commit suicide after having a Windows 10 update running for 1 day making all your work delayed!&lt;/p&gt;
+&lt;p&gt;
+I wrote this guide to ease the painful process of fixing an error you don&amp;#39;t even know the reason behind it&amp;#39;s existence with the help of u/msquirrel who helped me find the solution to the problem I was facing during the installation of League of Legends using the script available on Lutris website.&lt;/p&gt;
+&lt;p&gt;
+The errors that made the installation crash are the following:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-3&#34;&gt;
+&lt;code&gt;Error running C:\Riot Games\League of Legends/Prerequisites/Dx9/dxsetup.exe /silent: child killed: unknown signal&lt;/code&gt;
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;This error later resulted in the error mentioned in the title of this post. And after checking the logs while conduction a series of reinstallation of League of Legends on Lutris we found out there are missing packages that was supposed to be installed before installing the game using Lutris.&lt;/p&gt;
+&lt;p&gt;
+Those packages are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;gnutls lib32-gnutls&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;lib32-alsa-lib&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;lib32-libldap&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;lib32-lcms2&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;samba&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;krb5 lib32-krb5&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;lib32-openal&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Copy-Paste in terminal to install the packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo pacman -S gnutls lib32-gnutls lib32-alsa-lib lib32-libldap lib32-lcms2 samba krb5 lib32-krb5 lib32-openal&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-4&#34;&gt;
+After installing packages
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Reinstall League of Legends from Lutris.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-5&#34;&gt;
+Enjoy playing League!
+&lt;/h2&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Merger of Home and Root Into a Unified Partition</title>
+      <link>/posts/merger-of-home-and-root-into-a-unified-partition/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/merger-of-home-and-root-into-a-unified-partition/</guid>
+      <description>First and Foremost…  I am not responsible over whatever shit that might occur during your migration process. What I am doing in this guide is documenting the process of the migration for my two previous partitions into one unified partition for the sake of seeking this guide when required.
+  Getting Started  Have you ever gotten into a situation where you have to clean your /root partitions cache constantly because it keeps getting full?</description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+First and Foremost…
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;I am not responsible over whatever shit that might occur during your migration process. What I am doing in this guide is documenting the process of the migration for my two previous partitions into one unified partition for the sake of seeking this guide when required.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Getting Started
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;&lt;em&gt;Have you ever gotten into a situation where you have to clean your /root partitions cache constantly because it keeps getting full? And by any chance, did you create a separate /home and /root partition which you now regret doing? If so then this guide is for you!&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Before proceeding with anything you need to know this: &lt;strong&gt;do not remove more than the /home partition after backing it up in another partition and it&amp;#39;s also advised that you back up both the partitions in another partition than /root!&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;warning-block&#34;&gt;
+&lt;p&gt;Before we start off with the guide I need to clarify this that you should apply the commands based on your partition scheme and that this guide is written based on my partition scheme! So please, be cautious and follow this guide with the help of an experienced person if you do not understand what you should do!**&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-3&#34;&gt;
+Current Partition Scheme
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;div class=&#34;src src-bash&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;arch@archlinux ~&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;$ lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+loop0    7:0    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  87.9M  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; loop /var/lib/snapd/snap/core/5548
+sda      8:0    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 465.8G  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; disk
+├─sda1   8:1    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;   300M  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; part
+├─sda2   8:2    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;   100M  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; part
+├─sda3   8:3    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;   128M  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; part
+├─sda4   8:4    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 232.7G  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; part
+├─sda5   8:5    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;   550M  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; part /boot
+├─sda6   8:6    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;    12G  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; part &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;SWAP&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+├─sda7   8:7    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;    20G  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; part /
+└─sda8   8:8    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;   200G  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; part /home
+sr0     11:0    &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  1024M  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rom&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-4&#34;&gt;
+The surgery
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-5&#34;&gt;
+IMPORTANT
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure to remove cached files which you won&amp;#39;t be needing for this procedure to reduce the amount of time required to backup your files!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Backup &lt;code class=&#34;verbatim&#34;&gt;/home&lt;/code&gt;: will later be used to restore all the files after home partition (&lt;code class=&#34;verbatim&#34;&gt;/dev/sdaX&lt;/code&gt;) has been removed and turned into anllocated space.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo tar czpvf /PATH/TO/BACKUP_PARTITION/home.tar.gz -C /home .&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Backup &lt;code class=&#34;verbatim&#34;&gt;/root&lt;/code&gt;: if something wrong happens throughout the process, this backup would be used to ensure that the process is still replicatable.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Reboot into a LiveUSB&lt;/strong&gt; to prevent file loss during the backup process.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-6&#34;&gt;
+Before Backup
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;If you want to backup your files in your dual-boot OS&lt;/strong&gt; (Windows): you need to install ntfs-3g which will allow you to mount the Windows partition without problems.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;pacman -S ntfs-3g&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;mkdir /x; mount /dev/sdaX /x&lt;/code&gt; (Replace: &lt;em&gt;X&lt;/em&gt; = partition, &lt;strong&gt;x&lt;/strong&gt; = folder-name).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;mount /dev/sdaX /mnt&lt;/code&gt; (&lt;em&gt;X&lt;/em&gt; = root-partition), do not mount &lt;code class=&#34;verbatim&#34;&gt;/home&lt;/code&gt; otherwise it will backup alongside the &lt;code class=&#34;verbatim&#34;&gt;/root&lt;/code&gt; backup of the partition.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;tar zcvpf /PATH/TO/BACKUP_PARTITION/root.tar.gz -C /mnt .&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;When the backup has finished without returning errors&lt;/strong&gt; =&amp;gt; reboot and later check the files in the new archived folder to confirm that the files had indeed finished the backup process without trouble.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reboot to LiveUSB or just ignore this and finish the rest of this guide.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-7&#34;&gt;
+After Backup
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-7&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Boot into your LiveUSB.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Confirm that you are either using GPT or MBR through &lt;code&gt;gdisk /dev/sda&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Type &lt;code&gt;p&lt;/code&gt; -&amp;gt; hit enter and you should be greeted with the current partition scheme.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Type &lt;code&gt;d&lt;/code&gt; to remove partition and then &lt;code&gt;X&lt;/code&gt; (replace &lt;em&gt;X&lt;/em&gt; with the number for your &lt;code class=&#34;verbatim&#34;&gt;/home&lt;/code&gt; partition)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Repeat step 3, but replace &lt;em&gt;X&lt;/em&gt; with the number for the &lt;code class=&#34;verbatim&#34;&gt;root&lt;/code&gt; partition.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;If the process was successful, there should be no file loss from your &lt;code class=&#34;verbatim&#34;&gt;root&lt;/code&gt; partition due to the creation of a merged partition rather than the deletion of the partition, which would transfer the files to the new partition instead of removing them.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;During the writing of this guide, &lt;strong&gt;I had used two EXT4 partitions&lt;/strong&gt; for both partitions&lt;/em&gt;, therefore you should note that the method is different for other partition types. (Hexcode number: 8300)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Type ~n` to create a new partition and later choose the number for your partition with the block size set from the &lt;code class=&#34;verbatim&#34;&gt;start sector&lt;/code&gt; to the &lt;code class=&#34;verbatim&#34;&gt;end sector&lt;/code&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Double check your &lt;code class=&#34;verbatim&#34;&gt;start sector&lt;/code&gt; and your &lt;code class=&#34;verbatim&#34;&gt;end sector&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Type &lt;code&gt;p&lt;/code&gt; to check the partition scheme and ensure that the new partition = &lt;code class=&#34;verbatim&#34;&gt;/home + /root&lt;/code&gt; size and make sure to check the Hexcode number for the partition is the same as it previously was. (Hexcode number = 8300).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you are satisfied with the new partition, type &lt;code&gt;w&lt;/code&gt; to write the new partition.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Expand the filesystem using &lt;code&gt;resize2fs&lt;/code&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;resize2fs /dev/sdaX&lt;/code&gt;, where &lt;em&gt;X&lt;/em&gt; = number of the new created partition.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If it returns &lt;code&gt;e2fck -f /dev/sdaX`&lt;/code&gt;, then execute that command + the &lt;code class=&#34;verbatim&#34;&gt;resize2fs&lt;/code&gt; command afterwards.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mount the newly expanded partition to &lt;code class=&#34;verbatim&#34;&gt;/mnt&lt;/code&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;mount /dev/sdaX /mnt&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Do: &lt;code&gt;ls /mnt&lt;/code&gt; to check if your old &lt;code class=&#34;verbatim&#34;&gt;/root&lt;/code&gt; files are still present.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;mkdir /x; mount /dev/sdaX /x&lt;/code&gt; and locate your saved &lt;code class=&#34;verbatim&#34;&gt;/home.tar.gz&lt;/code&gt; file using &lt;code&gt;cd&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;tar -zxpvf /PATH/TO/home.tar.gz -C /mnt/home&lt;/code&gt; to unpack your files to &lt;code class=&#34;verbatim&#34;&gt;/home&lt;/code&gt; directory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Remove old &lt;code class=&#34;verbatim&#34;&gt;/home&lt;/code&gt; partition from &lt;code class=&#34;verbatim&#34;&gt;fstab&lt;/code&gt; from another window, &lt;code&gt;CTRL+ALT+F3&lt;/code&gt;, through &lt;code&gt;nano /mnt/etc/fstab&lt;/code&gt; + remove old lines for &lt;code class=&#34;verbatim&#34;&gt;/home&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-8&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-8&#34;&gt;
+Lastly
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-8&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To ensure that the process is working as expected do &lt;code&gt;ls -l /mnt/home/&lt;/code&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;It should &lt;strong&gt;not&lt;/strong&gt; be &lt;code&gt;0&lt;/code&gt; because the old files in &lt;code class=&#34;verbatim&#34;&gt;/home&lt;/code&gt; have transferred to the new &lt;code class=&#34;verbatim&#34;&gt;/root&lt;/code&gt; partition!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Return to the window where you ran the tar command through &lt;code&gt;CTRL+ALT+F3&lt;/code&gt;, when the process has finished run &lt;code&gt;sync&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check your files through &lt;code&gt;ls&lt;/code&gt; and if you are satisfied…. &lt;code&gt;reboot&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-9&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-9&#34;&gt;
+Good Job!
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-9&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;Now you have one unified partition rather than two :P&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Setup Systemd Resolve</title>
+      <link>/posts/setup-systemd-resolve/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/setup-systemd-resolve/</guid>
+      <description> Procedure    Edit /etc/systemd/resolved.conf by adding the valuable bits (dns, fallback dns)
+  Execute the follwing commands in your terminal instance:
+  systemctl restart systemd-resolved
+  sudo ln -s /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+      </description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Procedure
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Edit &lt;code class=&#34;verbatim&#34;&gt;/etc/systemd/resolved.conf&lt;/code&gt; by adding the valuable bits (dns, fallback dns)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Execute the follwing commands in your terminal instance:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;systemctl restart systemd-resolved&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo ln -s /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Solving Random Network Disconnect</title>
+      <link>/posts/solving-random-network-disconnect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/solving-random-network-disconnect/</guid>
+      <description>Cause?  Weird Power-saving mode enabled by default, which causes Fn-key to not disable light after being disabled + random network disconnection + bluetooth not enabling after being disabled although rfkill list shows no presence of soft kill.
+  Temporary Solution:  su -c &amp;#39;ip link set wlp3s0 down &amp;amp;&amp;amp; modprobe -r rtw88_8822be &amp;amp;&amp;amp; modprobe rtw88_8822be &amp;amp;&amp;amp; ip link set wlp3s0 up&amp;#39;    Permantent Solution - Dante777  Append one of the following in the kernel parameters of your bootloader of choice:</description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Cause?
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;Weird Power-saving mode enabled by default, which causes Fn-key to not disable light after being disabled + random network disconnection + bluetooth not enabling after being disabled although &lt;code&gt;rfkill list&lt;/code&gt; shows no presence of &lt;code&gt;soft kill&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Temporary Solution:
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div class=&#34;src src-bash&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;su -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ip link set wlp3s0 down &amp;amp;&amp;amp; modprobe -r rtw88_8822be &amp;amp;&amp;amp; modprobe rtw88_8822be &amp;amp;&amp;amp; ip link set wlp3s0 up&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-3&#34;&gt;
+Permantent Solution - Dante777
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;Append one of the following in the kernel parameters of your bootloader of choice:&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-4&#34;&gt;
+Power-saving Mode
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;div class=&#34;src src-bash&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pcie_aspm.policy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;powersave&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-5&#34;&gt;
+Performance Mode
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;div class=&#34;src src-bash&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pcie_aspm.policy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;performance&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Switching From Deepin to KDE</title>
+      <link>/posts/switching-from-deepin-to-kde/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/switching-from-deepin-to-kde/</guid>
+      <description>Switching from Deepin DE to KDE  This tutorial is written for Arch Linux users and should be followed with caution!
+Getting Started  This is a guide for people using Deepin DE and doesn&amp;#39;t know how to switch to KDE without breaking the system or having to reinstall Arch Linux.
+  Installing Packagesnew  Install the packages required by your new Desktop Environemnt (DE) of choice you want to replace Deepin with, which in this case is KDE Plasma:</description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Switching from Deepin DE to KDE
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;This tutorial is written for Arch Linux users and should be followed with caution!&lt;/p&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-2&#34;&gt;
+Getting Started
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;This is a guide for people using Deepin DE and doesn&amp;#39;t know how to switch to KDE without breaking the system or having to reinstall Arch Linux.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-3&#34;&gt;
+Installing Packagesnew
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;Install the packages required by your new &lt;em&gt;Desktop Environemnt&lt;/em&gt; (&lt;em&gt;DE&lt;/em&gt;) of choice you want to replace Deepin with, which in this case is KDE Plasma:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo pacman -S plasma-meta&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Plasma-meta: Install all the packages without being able to exclude some packages that will be installed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Plasma: Install all the desired packages by selecting which packages you want to install, write the number of the packages and later click enter for them to install.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Plasma-desktop: the minimal version of KDE that will install all the nessecary files to make the DE run.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-4&#34;&gt;
+Install KDE applications
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo pacman -S kde-applications-meta&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;KDE-applications: Install the desired packages.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;KDE-applications-meta: Install all the packages without being able to control which packages won&amp;#39;t be installed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-5&#34;&gt;
+Uninstall Packages of Current DE
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo pacman -Runs deepin deepin-extra&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-6&#34;&gt;
+&lt;code&gt;CTRL+ALT+F2&lt;/code&gt; =&amp;gt; Login as ROOT user.
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;Run the following commands:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;systemctl disable ligthdm.service&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;systemctl enable sddm.service&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;systemctl start sddm.service&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-7&#34;&gt;
+Congratulations! You have just successfully installed KDE display manager and removed Deepin DE!
+&lt;/h2&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Welcome To My Blog!</title>
+      <link>/posts/welcome/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/welcome/</guid>
+      <description> Linux Journey From East -&amp;gt; West  This blog is an archive to document the issues encountered throughtout the years of my Linux usage. Hopefully someone will be able to benefit from reading these files and hopefully even manage to resolve an issue which have been bugging for quite some time.
+  Enjoy your read!   </description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Linux Journey From East -&amp;gt; West
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;This blog is an archive to document the issues encountered throughtout the years of my Linux usage. Hopefully someone will be able to benefit from reading these files and hopefully even manage to resolve an issue which have been bugging for quite some time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Enjoy your read!
+&lt;/h2&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
