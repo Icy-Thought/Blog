@@ -6,7 +6,211 @@
     <description>Recent content in Posts on The Journal of Icy-Thought</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://icy-thought.github.io/Blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://icy-thought.github.io/Blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nixos Wireguard</title>
+      <link>https://icy-thought.github.io/Blog/posts/nixos-wireguard/</link>
+      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://icy-thought.github.io/Blog/posts/nixos-wireguard/</guid>
+      <description>Wireguard.nix  One of the many free &amp;amp; open-source VPN protocol and when fused with the wonderful declarative Nix configuration one is able to setup their system without hinders!
+ In this post I will attempt to explain how to setup a declarative wireguard.nix module, enjoy!
+ Note: The &amp;lt;&amp;lt;X&amp;gt;&amp;gt; provided in the source-blocks links the remaining source blocks with the source-block they are input in. This is useful when writing your Nix configurations in org-mode and later tangling (outputs the code only) the result to a example.</description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+&lt;code&gt;Wireguard.nix&lt;/code&gt;
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;One of the many free &amp;amp; open-source VPN protocol and when fused with the wonderful declarative Nix configuration one is able to setup their system without hinders!&lt;/p&gt;
+&lt;p&gt;
+In this post I will attempt to explain how to setup a declarative &lt;code&gt;wireguard.nix&lt;/code&gt; module, enjoy!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: The &lt;code&gt;&amp;lt;&amp;lt;X&amp;gt;&amp;gt;&lt;/code&gt; provided in the source-blocks links the remaining source blocks with the source-block they are input in. This is useful when writing your Nix configurations in org-mode and later tangling (outputs the code only) the result to a &lt;code class=&#34;verbatim&#34;&gt;example.nix&lt;/code&gt; file.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-2&#34;&gt;
+Systemd.service: &lt;code&gt;&amp;#34;wg-quick-wg0&amp;#34;&lt;/code&gt;.
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;This is not a necessary step, but to prevent the service from starting during boot while remaining enabled one has to specify the &lt;code&gt;wantedBy&lt;/code&gt; option.&lt;/p&gt;
+&lt;p&gt;
+Another reason to why I am using the following setup is to add the &lt;code&gt;path&lt;/code&gt;, listed in the &lt;code&gt;systemd.services&lt;/code&gt;, to the scope which helps me reduce the amount of references required when enabling the kill-switch later on.&lt;/p&gt;
+&lt;div class=&#34;src src-nix&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;{ config&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; pkgs&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; lib&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt; }:
+{
+  systemd&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;services&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;wg-quick-wg0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+    requires &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;network-online.target&amp;#34;&lt;/span&gt; ];
+    after &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;network.target&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;network-online.target&amp;#34;&lt;/span&gt; ];
+    wantedBy &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; lib&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mkForce [ ];
+    environment&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;DEVICE &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;wg0&amp;#34;&lt;/span&gt;;
+    path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [ pkgs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;wireguard-tools pkgs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;iptables pkgs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;iproute ];
+ };
+
+  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;networking&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: You are not limited to using &lt;code&gt;wg0&lt;/code&gt; as an interface name. You could instead use whatever name you deem fit for your &lt;code&gt;wg-quick&lt;/code&gt; interface!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-3&#34;&gt;
+Networking: Setup your &lt;code&gt;wg-quick&lt;/code&gt; Interface
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;Define your &lt;code&gt;wg-quick&lt;/code&gt; interface (make sure to replace &lt;code&gt;wg0&lt;/code&gt; with your interface name) and obviously fill in the missing info inside the quotes:&lt;/p&gt;
+&lt;div class=&#34;src src-nix&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;  networking &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; {
+    wg-quick&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;interfaces &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+      wg0 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+        address &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; ];
+        dns &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; ];
+        listenPort &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;51820&lt;/span&gt;;
+        privateKeyFile &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;wireguard_private.key&amp;#34;&lt;/span&gt;;
+
+        peers &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [{
+          publicKey &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;;
+          allowedIPs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; ];
+          endpoint &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;;
+          persistentKeepalive &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;;
+        }];
+
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;kill-switch&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+      };
+    };
+  };&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-4&#34;&gt;
+&lt;h4 id=&#34;headline-4&#34;&gt;
+Kill-Switch: Prevent DNS Leakage!
+&lt;/h4&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-4&#34;&gt;
+&lt;p&gt;When the connection is probable to leaking your DNS, the connection will completely shutdown and prevent any form of network flow unless the systemd-service has been restarted:&lt;/p&gt;
+&lt;div class=&#34;src src-nix&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;        postUp &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          iptables -I OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT  &amp;amp;&amp;amp; ip6tables -I OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#39;&amp;#39;&lt;/span&gt;;
+
+        preDown &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          iptables -D OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT &amp;amp;&amp;amp; ip6tables -D OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#39;&amp;#39;&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-5&#34;&gt;
+Congratulations!
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;You now have a fully functional &lt;code&gt;wg-quick&lt;/code&gt; interface!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Sway in Nixos</title>
+      <link>https://icy-thought.github.io/Blog/posts/sway-in-nixos/</link>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://icy-thought.github.io/Blog/posts/sway-in-nixos/</guid>
+      <description>Introduction  The following post shows the required settings for your NixOS system to use a Sway WM.
+  Packages  Defaults  swaylock # Wayland Screen-locker. swayidle # Idle management. xwayland # Solution for ancient applications. wl-clipboard # Wayland clipboard. mako # Notification daemon. wofi # Wayland Launcher. waybar # Polybar alternative. wf-recorder # Screen recorder for Sway. grim # Screenshot tool for Wayland. lxappearance    Theme-related  gtk-engine-murrine gtk_engines gsettings-desktop-schemas lxappearance      Programs  programs = { qt5ct.</description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Introduction
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;The following post shows the required settings for your NixOS system to use a Sway WM.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Packages
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-3&#34;&gt;
+Defaults
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;div class=&#34;src src-nix&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;swaylock                                            &lt;span style=&#34;color:#75715e&#34;&gt;# Wayland Screen-locker.&lt;/span&gt;
+swayidle                                            &lt;span style=&#34;color:#75715e&#34;&gt;# Idle management.&lt;/span&gt;
+xwayland                                            &lt;span style=&#34;color:#75715e&#34;&gt;# Solution for ancient applications.&lt;/span&gt;
+wl-clipboard                                        &lt;span style=&#34;color:#75715e&#34;&gt;# Wayland clipboard.&lt;/span&gt;
+mako                                                &lt;span style=&#34;color:#75715e&#34;&gt;# Notification daemon.&lt;/span&gt;
+wofi                                                &lt;span style=&#34;color:#75715e&#34;&gt;# Wayland Launcher.&lt;/span&gt;
+waybar                                              &lt;span style=&#34;color:#75715e&#34;&gt;# Polybar alternative.&lt;/span&gt;
+wf-recorder                                         &lt;span style=&#34;color:#75715e&#34;&gt;# Screen recorder for Sway.&lt;/span&gt;
+grim                                                &lt;span style=&#34;color:#75715e&#34;&gt;# Screenshot tool for Wayland.&lt;/span&gt;
+lxappearance&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-4&#34;&gt;
+Theme-related
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;div class=&#34;src src-nix&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;gtk-engine-murrine
+gtk_engines
+gsettings-desktop-schemas
+lxappearance&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-5&#34;&gt;
+Programs
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div class=&#34;src src-nix&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;programs &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; {
+  qt5ct&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enable &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
+  waybar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enable &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
+
+  sway &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+    enable &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
+    wrapperFeatures&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;gtk &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
+
+    extraSessionCommands &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      export SDL_VIDEODRIVER=wayland
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      export QT_QPA_PLATFORM=wayland
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      export QT_WAYLAND_DISABLE_WINDOWDECORATION=&amp;#34;1&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      export _JAVA_AWT_WM_NONREPARENTING=1
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      export MOZ_ENABLE_WAYLAND=1
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      # Fcitx-related
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      export INPUT_METHOD=fcitx
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      export QT_IM_MODULE=fcitx
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      export GTK_IM_MODULE=fcitx
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      export XMODIFIERS=@im=fcitx
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      export XIM_SERVERS=fcitx
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#39;&amp;#39;&lt;/span&gt;;
+  };
+};&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-6&#34;&gt;
+Congratulations!
+&lt;/h2&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
     <item>
       <title>Gnome Menu Options</title>
       <link>https://icy-thought.github.io/Blog/posts/gnome-menu-options/</link>

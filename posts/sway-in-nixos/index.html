@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Sway in Nixos :: The Journal of Icy-Thought</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Introduction  The following post shows the required settings for your NixOS system to use a Sway WM.
+  Packages  Defaults  swaylock # Wayland Screen-locker. swayidle # Idle management. xwayland # Solution for ancient applications. wl-clipboard # Wayland clipboard. mako # Notification daemon. wofi # Wayland Launcher. waybar # Polybar alternative. wf-recorder # Screen recorder for Sway. grim # Screenshot tool for Wayland. lxappearance    Theme-related  gtk-engine-murrine gtk_engines gsettings-desktop-schemas lxappearance      Programs  programs = { qt5ct." />
+<meta name="keywords" content="Mathematics, Computer Science, Physics, Linux, Biology" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://icy-thought.github.io/Blog/posts/sway-in-nixos/" />
+
+
+
+
+<link rel="stylesheet" href="https://icy-thought.github.io/Blog/assets/style.css">
+
+  <link rel="stylesheet" href="https://icy-thought.github.io/Blog/assets/blue.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://icy-thought.github.io/Blog/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://icy-thought.github.io/Blog/img/favicon/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Sway in Nixos">
+<meta property="og:description" content="Introduction  The following post shows the required settings for your NixOS system to use a Sway WM.
+  Packages  Defaults  swaylock # Wayland Screen-locker. swayidle # Idle management. xwayland # Solution for ancient applications. wl-clipboard # Wayland clipboard. mako # Notification daemon. wofi # Wayland Launcher. waybar # Polybar alternative. wf-recorder # Screen recorder for Sway. grim # Screenshot tool for Wayland. lxappearance    Theme-related  gtk-engine-murrine gtk_engines gsettings-desktop-schemas lxappearance      Programs  programs = { qt5ct." />
+<meta property="og:url" content="https://icy-thought.github.io/Blog/posts/sway-in-nixos/" />
+<meta property="og:site_name" content="The Journal of Icy-Thought" />
+
+  
+    <meta property="og:image" content="https://icy-thought.github.io/Blog/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2021-06-01 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="blue">
+
+
+<div class="container headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/Blog">
+  <div class="logo">
+    The journal of Icy-Thought
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/Blog/">Home</a></li>
+        
+      
+        
+          <li><a href="/Blog/about">About</a></li>
+        
+      
+        
+          <li><a href="/Blog/disclaimer">Disclaimer of Liability</a></li>
+        
+      
+        
+          <li><a href="https://github.com/Icy-Thought/Blog">GitHub Repository</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/Blog/">Home</a></li>
+      
+    
+      
+        <li><a href="/Blog/about">About</a></li>
+      
+    
+      
+        <li><a href="/Blog/disclaimer">Disclaimer of Liability</a></li>
+      
+    
+      
+        <li><a href="https://github.com/Icy-Thought/Blog">GitHub Repository</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://icy-thought.github.io/Blog/posts/sway-in-nixos/">Sway in Nixos</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2021-06-01 
+      </span>
+    
+    
+  </div>
+
+  
+
+  
+
+  
+
+  <div class="post-content"><div>
+        
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Introduction
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>The following post shows the required settings for your NixOS system to use a Sway WM.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Packages
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Defaults
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<div class="src src-nix">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">swaylock                                            <span style="color:#75715e"># Wayland Screen-locker.</span>
+swayidle                                            <span style="color:#75715e"># Idle management.</span>
+xwayland                                            <span style="color:#75715e"># Solution for ancient applications.</span>
+wl-clipboard                                        <span style="color:#75715e"># Wayland clipboard.</span>
+mako                                                <span style="color:#75715e"># Notification daemon.</span>
+wofi                                                <span style="color:#75715e"># Wayland Launcher.</span>
+waybar                                              <span style="color:#75715e"># Polybar alternative.</span>
+wf-recorder                                         <span style="color:#75715e"># Screen recorder for Sway.</span>
+grim                                                <span style="color:#75715e"># Screenshot tool for Wayland.</span>
+lxappearance</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Theme-related
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<div class="src src-nix">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">gtk-engine-murrine
+gtk_engines
+gsettings-desktop-schemas
+lxappearance</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Programs
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<div class="src src-nix">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">programs <span style="color:#960050;background-color:#1e0010">=</span> {
+  qt5ct<span style="color:#f92672">.</span>enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+  waybar<span style="color:#f92672">.</span>enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+
+  sway <span style="color:#f92672">=</span> {
+    enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+    wrapperFeatures<span style="color:#f92672">.</span>gtk <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+
+    extraSessionCommands <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;
+</span><span style="color:#e6db74">      export SDL_VIDEODRIVER=wayland
+</span><span style="color:#e6db74">      export QT_QPA_PLATFORM=wayland
+</span><span style="color:#e6db74">      export QT_WAYLAND_DISABLE_WINDOWDECORATION=&#34;1&#34;
+</span><span style="color:#e6db74">      export _JAVA_AWT_WM_NONREPARENTING=1
+</span><span style="color:#e6db74">      export MOZ_ENABLE_WAYLAND=1
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">      # Fcitx-related
+</span><span style="color:#e6db74">      export INPUT_METHOD=fcitx
+</span><span style="color:#e6db74">      export QT_IM_MODULE=fcitx
+</span><span style="color:#e6db74">      export GTK_IM_MODULE=fcitx
+</span><span style="color:#e6db74">      export XMODIFIERS=@im=fcitx
+</span><span style="color:#e6db74">      export XIM_SERVERS=fcitx
+</span><span style="color:#e6db74">    &#39;&#39;</span>;
+  };
+};</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+Congratulations!
+</h2>
+</div>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="https://icy-thought.github.io/Blog/posts/nixos-wireguard/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Nixos Wireguard</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="https://icy-thought.github.io/Blog/posts/gnome-menu-options/">
+                <span class="button__text">Gnome Menu Options</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2021 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://icy-thought.github.io/Blog/assets/main.js"></script>
+<script src="https://icy-thought.github.io/Blog/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

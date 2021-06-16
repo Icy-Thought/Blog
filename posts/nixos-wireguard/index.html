@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Nixos Wireguard :: The Journal of Icy-Thought</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Wireguard.nix  One of the many free &amp;amp; open-source VPN protocol and when fused with the wonderful declarative Nix configuration one is able to setup their system without hinders!
+ In this post I will attempt to explain how to setup a declarative wireguard.nix module, enjoy!
+ Note: The &amp;lt;&amp;lt;X&amp;gt;&amp;gt; provided in the source-blocks links the remaining source blocks with the source-block they are input in. This is useful when writing your Nix configurations in org-mode and later tangling (outputs the code only) the result to a example." />
+<meta name="keywords" content="Mathematics, Computer Science, Physics, Linux, Biology" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://icy-thought.github.io/Blog/posts/nixos-wireguard/" />
+
+
+
+
+<link rel="stylesheet" href="https://icy-thought.github.io/Blog/assets/style.css">
+
+  <link rel="stylesheet" href="https://icy-thought.github.io/Blog/assets/blue.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://icy-thought.github.io/Blog/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://icy-thought.github.io/Blog/img/favicon/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Nixos Wireguard">
+<meta property="og:description" content="Wireguard.nix  One of the many free &amp;amp; open-source VPN protocol and when fused with the wonderful declarative Nix configuration one is able to setup their system without hinders!
+ In this post I will attempt to explain how to setup a declarative wireguard.nix module, enjoy!
+ Note: The &amp;lt;&amp;lt;X&amp;gt;&amp;gt; provided in the source-blocks links the remaining source blocks with the source-block they are input in. This is useful when writing your Nix configurations in org-mode and later tangling (outputs the code only) the result to a example." />
+<meta property="og:url" content="https://icy-thought.github.io/Blog/posts/nixos-wireguard/" />
+<meta property="og:site_name" content="The Journal of Icy-Thought" />
+
+  
+    <meta property="og:image" content="https://icy-thought.github.io/Blog/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2021-06-16 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="blue">
+
+
+<div class="container headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/Blog">
+  <div class="logo">
+    The journal of Icy-Thought
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/Blog/">Home</a></li>
+        
+      
+        
+          <li><a href="/Blog/about">About</a></li>
+        
+      
+        
+          <li><a href="/Blog/disclaimer">Disclaimer of Liability</a></li>
+        
+      
+        
+          <li><a href="https://github.com/Icy-Thought/Blog">GitHub Repository</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/Blog/">Home</a></li>
+      
+    
+      
+        <li><a href="/Blog/about">About</a></li>
+      
+    
+      
+        <li><a href="/Blog/disclaimer">Disclaimer of Liability</a></li>
+      
+    
+      
+        <li><a href="https://github.com/Icy-Thought/Blog">GitHub Repository</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://icy-thought.github.io/Blog/posts/nixos-wireguard/">Nixos Wireguard</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2021-06-16 
+      </span>
+    
+    
+  </div>
+
+  
+
+  
+
+  
+
+  <div class="post-content"><div>
+        
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+<code>Wireguard.nix</code>
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>One of the many free &amp; open-source VPN protocol and when fused with the wonderful declarative Nix configuration one is able to setup their system without hinders!</p>
+<p>
+In this post I will attempt to explain how to setup a declarative <code>wireguard.nix</code> module, enjoy!</p>
+<blockquote>
+<p><strong>Note</strong>: The <code>&lt;&lt;X&gt;&gt;</code> provided in the source-blocks links the remaining source blocks with the source-block they are input in. This is useful when writing your Nix configurations in org-mode and later tangling (outputs the code only) the result to a <code class="verbatim">example.nix</code> file.</p>
+</blockquote>
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+Systemd.service: <code>&#34;wg-quick-wg0&#34;</code>.
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<p>This is not a necessary step, but to prevent the service from starting during boot while remaining enabled one has to specify the <code>wantedBy</code> option.</p>
+<p>
+Another reason to why I am using the following setup is to add the <code>path</code>, listed in the <code>systemd.services</code>, to the scope which helps me reduce the amount of references required when enabling the kill-switch later on.</p>
+<div class="src src-nix">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">{ config<span style="color:#f92672">,</span> pkgs<span style="color:#f92672">,</span> lib<span style="color:#f92672">,</span> <span style="color:#f92672">...</span> }:
+{
+  systemd<span style="color:#f92672">.</span>services<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;wg-quick-wg0&#34;</span> <span style="color:#f92672">=</span> {
+    requires <span style="color:#f92672">=</span> [ <span style="color:#e6db74">&#34;network-online.target&#34;</span> ];
+    after <span style="color:#f92672">=</span> [ <span style="color:#e6db74">&#34;network.target&#34;</span> <span style="color:#e6db74">&#34;network-online.target&#34;</span> ];
+    wantedBy <span style="color:#f92672">=</span> lib<span style="color:#f92672">.</span>mkForce [ ];
+    environment<span style="color:#f92672">.</span>DEVICE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;wg0&#34;</span>;
+    path <span style="color:#f92672">=</span> [ pkgs<span style="color:#f92672">.</span>wireguard-tools pkgs<span style="color:#f92672">.</span>iptables pkgs<span style="color:#f92672">.</span>iproute ];
+ };
+
+  <span style="color:#f92672">&lt;</span><span style="color:#e6db74">&lt;networking&gt;</span><span style="color:#f92672">&gt;</span>
+}</code></pre></div>
+</div>
+<blockquote>
+<p><strong>Note</strong>: You are not limited to using <code>wg0</code> as an interface name. You could instead use whatever name you deem fit for your <code>wg-quick</code> interface!</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Networking: Setup your <code>wg-quick</code> Interface
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>Define your <code>wg-quick</code> interface (make sure to replace <code>wg0</code> with your interface name) and obviously fill in the missing info inside the quotes:</p>
+<div class="src src-nix">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">  networking <span style="color:#960050;background-color:#1e0010">=</span> {
+    wg-quick<span style="color:#f92672">.</span>interfaces <span style="color:#f92672">=</span> {
+      wg0 <span style="color:#f92672">=</span> {
+        address <span style="color:#f92672">=</span> [ <span style="color:#e6db74">&#34;&#34;</span> ];
+        dns <span style="color:#f92672">=</span> [ <span style="color:#e6db74">&#34;&#34;</span> ];
+        listenPort <span style="color:#f92672">=</span> <span style="color:#ae81ff">51820</span>;
+        privateKeyFile <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;wireguard_private.key&#34;</span>;
+
+        peers <span style="color:#f92672">=</span> [{
+          publicKey <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+          allowedIPs <span style="color:#f92672">=</span> [ <span style="color:#e6db74">&#34;&#34;</span> ];
+          endpoint <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+          persistentKeepalive <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>;
+        }];
+
+        <span style="color:#f92672">&lt;</span><span style="color:#e6db74">&lt;kill-switch&gt;</span><span style="color:#f92672">&gt;</span>
+      };
+    };
+  };</code></pre></div>
+</div>
+<div id="outline-container-headline-4" class="outline-4">
+<h4 id="headline-4">
+Kill-Switch: Prevent DNS Leakage!
+</h4>
+<div id="outline-text-headline-4" class="outline-text-4">
+<p>When the connection is probable to leaking your DNS, the connection will completely shutdown and prevent any form of network flow unless the systemd-service has been restarted:</p>
+<div class="src src-nix">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">        postUp <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#e6db74">&#39;&#39;
+</span><span style="color:#e6db74">          iptables -I OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT  &amp;&amp; ip6tables -I OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT
+</span><span style="color:#e6db74">        &#39;&#39;</span>;
+
+        preDown <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#e6db74">&#39;&#39;
+</span><span style="color:#e6db74">          iptables -D OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT &amp;&amp; ip6tables -D OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT
+</span><span style="color:#e6db74">        &#39;&#39;</span>;</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Congratulations!
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>You now have a fully functional <code>wg-quick</code> interface!</p>
+</div>
+</div>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="https://icy-thought.github.io/Blog/posts/sway-in-nixos/">
+                <span class="button__text">Sway in Nixos</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2021 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://icy-thought.github.io/Blog/assets/main.js"></script>
+<script src="https://icy-thought.github.io/Blog/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
