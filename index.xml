@@ -120,15 +120,15 @@ Congratulations!
       <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://icy-thought.github.io/Blog/posts/chrome-gnome-shell/</guid>
-      <description>Introduction  The process of installing extensions for your gnome-shell is not as simple as installing addons from your browser store. One has to first install a package by the name of `GNOME Shell-integration` from the browser store and also `chrome-gnome-shell` to enable Gnome-extension to install, remove and configure the installed Gnome extensions.
-  Procedure  To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add `chrome-gnome-shell` to our installed packages in `environment.</description>
+      <description>Introduction  The process of installing extensions for your gnome-shell is not as simple as installing addons from your browser store. One has to first install a package by the name of GNOME Shell-integration from the browser store and also chrome-gnome-shell to enable Gnome-extension to install, remove and configure the installed Gnome extensions.
+  Procedure  To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add chrome-gnome-shell to our installed packages in environment.</description>
       <content>
 &lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
 &lt;h2 id=&#34;headline-1&#34;&gt;
 Introduction
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;The process of installing extensions for your gnome-shell is not as simple as installing addons from your browser store. One has to first install a package by the name of `GNOME Shell-integration` from the browser store and also `chrome-gnome-shell` to enable Gnome-extension to install, remove and configure the installed Gnome extensions.&lt;/p&gt;
+&lt;p&gt;The process of installing extensions for your gnome-shell is not as simple as installing addons from your browser store. One has to first install a package by the name of &lt;code&gt;GNOME Shell-integration&lt;/code&gt; from the browser store and also &lt;code&gt;chrome-gnome-shell&lt;/code&gt; to enable Gnome-extension to install, remove and configure the installed Gnome extensions.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
@@ -136,20 +136,20 @@ Introduction
 Procedure
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add `chrome-gnome-shell` to our installed packages in `environment.systemPackages` and later inform the Firefox wrapper to enable chrome-gnome-shell for our Firefox browser:
-```nix
-environment.systemPackages = [
+&lt;p&gt;To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add &lt;code&gt;chrome-gnome-shell&lt;/code&gt; to our installed packages in &lt;code&gt;environment.systemPackages&lt;/code&gt; and later inform the Firefox wrapper to enable chrome-gnome-shell for our Firefox browser:&lt;/p&gt;
+&lt;div class=&#34;src src-nix&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;environment&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;systemPackages &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; [
   chrome-gnome-shell
-];&lt;/p&gt;
+];
+
+nixpkgs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;config&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;firefox&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enableGnomeExtensions &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;`&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;
-nixpkgs.config.firefox.enableGnomeExtensions = true;`
-```&lt;/p&gt;
-&lt;p&gt;
-This solution does not work for Firefox browsers installed through the Mozilla overlay. Therefore the user ought to link the nix-store generated `org.gnome.chrome_gnome_shell.json` to `~/.mozilla/native-messaging-hosts/` everytime `chrome-gnome-shell` it has been updated. Not an ideal solution if not automated and one of the several methods used to automate such process is done through appending the following lines to your `home.nix` to allow Home-Manager to automate the process for you: 
-```nix
-home.file.&amp;#34;.mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&amp;#34;.source = &amp;#34;${pkgs.chrome-gnome-shell}/lib/mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&amp;#34;;
-    };
-```&lt;/p&gt;
+This solution does not work for Firefox browsers installed through the Mozilla overlay. Therefore the user ought to link the nix-store generated &lt;code class=&#34;verbatim&#34;&gt;org.gnome.chrome_gnome_shell.json&lt;/code&gt; to &lt;code class=&#34;verbatim&#34;&gt;~/.mozilla/native-messaging-hosts/&lt;/code&gt; everytime &lt;code&gt;chrome-gnome-shell&lt;/code&gt; it has been updated. Not an ideal solution if not automated and one of the several methods used to automate such process is done through appending the following lines to your &lt;code class=&#34;verbatim&#34;&gt;home.nix&lt;/code&gt; to allow Home-Manager to automate the process for you:&lt;/p&gt;
+&lt;div class=&#34;src src-nix&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;home&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;file&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;source &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;pkgs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;chrome-gnome-shell&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/lib/mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&amp;#34;&lt;/span&gt;;
+    &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;}&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-2&#34;&gt;

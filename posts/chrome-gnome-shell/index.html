@@ -6,8 +6,8 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Introduction  The process of installing extensions for your gnome-shell is not as simple as installing addons from your browser store. One has to first install a package by the name of `GNOME Shell-integration` from the browser store and also `chrome-gnome-shell` to enable Gnome-extension to install, remove and configure the installed Gnome extensions.
-  Procedure  To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add `chrome-gnome-shell` to our installed packages in `environment." />
+<meta name="description" content="Introduction  The process of installing extensions for your gnome-shell is not as simple as installing addons from your browser store. One has to first install a package by the name of GNOME Shell-integration from the browser store and also chrome-gnome-shell to enable Gnome-extension to install, remove and configure the installed Gnome extensions.
+  Procedure  To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add chrome-gnome-shell to our installed packages in environment." />
 <meta name="keywords" content="Mathematics, Computer Science, Physics, Linux, Biology" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://icy-thought.github.io/Blog/posts/chrome-gnome-shell/" />
@@ -42,8 +42,8 @@
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Enable ~chrome-gnome-shell~ in Firefox Nightly">
-<meta property="og:description" content="Introduction  The process of installing extensions for your gnome-shell is not as simple as installing addons from your browser store. One has to first install a package by the name of `GNOME Shell-integration` from the browser store and also `chrome-gnome-shell` to enable Gnome-extension to install, remove and configure the installed Gnome extensions.
-  Procedure  To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add `chrome-gnome-shell` to our installed packages in `environment." />
+<meta property="og:description" content="Introduction  The process of installing extensions for your gnome-shell is not as simple as installing addons from your browser store. One has to first install a package by the name of GNOME Shell-integration from the browser store and also chrome-gnome-shell to enable Gnome-extension to install, remove and configure the installed Gnome extensions.
+  Procedure  To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add chrome-gnome-shell to our installed packages in environment." />
 <meta property="og:url" content="https://icy-thought.github.io/Blog/posts/chrome-gnome-shell/" />
 <meta property="og:site_name" content="The Journal of Icy-Thought" />
 
@@ -168,7 +168,7 @@
 Introduction
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
-<p>The process of installing extensions for your gnome-shell is not as simple as installing addons from your browser store. One has to first install a package by the name of `GNOME Shell-integration` from the browser store and also `chrome-gnome-shell` to enable Gnome-extension to install, remove and configure the installed Gnome extensions.</p>
+<p>The process of installing extensions for your gnome-shell is not as simple as installing addons from your browser store. One has to first install a package by the name of <code>GNOME Shell-integration</code> from the browser store and also <code>chrome-gnome-shell</code> to enable Gnome-extension to install, remove and configure the installed Gnome extensions.</p>
 </div>
 </div>
 <div id="outline-container-headline-2" class="outline-2">
@@ -176,20 +176,20 @@ Introduction
 Procedure
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
-<p>To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add `chrome-gnome-shell` to our installed packages in `environment.systemPackages` and later inform the Firefox wrapper to enable chrome-gnome-shell for our Firefox browser:
-```nix
-environment.systemPackages = [
+<p>To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add <code>chrome-gnome-shell</code> to our installed packages in <code>environment.systemPackages</code> and later inform the Firefox wrapper to enable chrome-gnome-shell for our Firefox browser:</p>
+<div class="src src-nix">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">environment<span style="color:#f92672">.</span>systemPackages <span style="color:#960050;background-color:#1e0010">=</span> [
   chrome-gnome-shell
-];</p>
+];
+
+nixpkgs<span style="color:#f92672">.</span>config<span style="color:#f92672">.</span>firefox<span style="color:#f92672">.</span>enableGnomeExtensions <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#66d9ef">true</span>;<span style="color:#960050;background-color:#1e0010">`</span></code></pre></div>
+</div>
 <p>
-nixpkgs.config.firefox.enableGnomeExtensions = true;`
-```</p>
-<p>
-This solution does not work for Firefox browsers installed through the Mozilla overlay. Therefore the user ought to link the nix-store generated `org.gnome.chrome_gnome_shell.json` to `~/.mozilla/native-messaging-hosts/` everytime `chrome-gnome-shell` it has been updated. Not an ideal solution if not automated and one of the several methods used to automate such process is done through appending the following lines to your `home.nix` to allow Home-Manager to automate the process for you: 
-```nix
-home.file.&#34;.mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&#34;.source = &#34;${pkgs.chrome-gnome-shell}/lib/mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&#34;;
-    };
-```</p>
+This solution does not work for Firefox browsers installed through the Mozilla overlay. Therefore the user ought to link the nix-store generated <code class="verbatim">org.gnome.chrome_gnome_shell.json</code> to <code class="verbatim">~/.mozilla/native-messaging-hosts/</code> everytime <code>chrome-gnome-shell</code> it has been updated. Not an ideal solution if not automated and one of the several methods used to automate such process is done through appending the following lines to your <code class="verbatim">home.nix</code> to allow Home-Manager to automate the process for you:</p>
+<div class="src src-nix">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">home<span style="color:#f92672">.</span>file<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;.mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&#34;</span><span style="color:#f92672">.</span>source <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>pkgs<span style="color:#f92672">.</span>chrome-gnome-shell<span style="color:#e6db74">}</span><span style="color:#e6db74">/lib/mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&#34;</span>;
+    <span style="color:#960050;background-color:#1e0010">}</span>;</code></pre></div>
+</div>
 </div>
 </div>
 <div id="outline-container-headline-3" class="outline-2">
