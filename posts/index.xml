@@ -6,7 +6,68 @@
     <description>Recent content in Posts on The Journal of Icy-Thought</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://icy-thought.github.io/Blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://icy-thought.github.io/Blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debloating Your Android Phone! (NixOS)</title>
+      <link>https://icy-thought.github.io/Blog/posts/debloating-android-device/</link>
+      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://icy-thought.github.io/Blog/posts/debloating-android-device/</guid>
+      <description>Introduction  Ever wanted to remove the pre-installed applications that came with your phone? Fortunately, there is an easy way to debloat your phone by uninstalling the unnecessary applications installed on your phone rather than disabling them (as suggested by the application manager of your phone).
+  Method    Append programs.adb.enable = true; to your configuration.nix for your NixOS dotfiles.
+  Or install the package through your distro&amp;#39;s package manager.</description>
+      <content>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Introduction
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;Ever wanted to remove the pre-installed applications that came with your phone? Fortunately, there is an easy way to debloat your phone by uninstalling the unnecessary applications installed on your phone rather than disabling them (as suggested by the application manager of your phone).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Method
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Append &lt;code&gt;programs.adb.enable = true;&lt;/code&gt; to your &lt;code class=&#34;verbatim&#34;&gt;configuration.nix&lt;/code&gt; for your NixOS dotfiles.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Or install the package through your distro&amp;#39;s package manager.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enable &amp;#34;developer settings&amp;#34; through your settings app and later plug-in your phone to your computer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Launch terminal -&amp;gt; &lt;code&gt;adb devices&lt;/code&gt; (if device shown) -&amp;gt; &lt;code&gt;adb shell&lt;/code&gt; + (from your phone) allow access to your phone.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;pm list packages&lt;/code&gt; -&amp;gt; list current installed packages.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;pm list users&lt;/code&gt; -&amp;gt; to determine where to uninstall the packages from (normal, work or secure folder)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;pm uninstall -k --user 0 package-name&lt;/code&gt; -&amp;gt; uninstall package.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;If &lt;code&gt;success&lt;/code&gt; was returned = successfully uninstalled package.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;if &lt;code&gt;unsuccessful&lt;/code&gt; either package does not exist or you mistyped the package name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+    </item>
+    
     <item>
       <title>Nixos Wireguard</title>
       <link>https://icy-thought.github.io/Blog/posts/nixos-wireguard/</link>
@@ -37,7 +98,7 @@ Systemd.service: &lt;code&gt;&amp;#34;wg-quick-wg0&amp;#34;&lt;/code&gt;.
 &lt;p&gt;
 Another reason to why I am using the following setup is to add the &lt;code&gt;path&lt;/code&gt;, listed in the &lt;code&gt;systemd.services&lt;/code&gt;, to the scope which helps me reduce the amount of references required when enabling the kill-switch later on.&lt;/p&gt;
 &lt;div class=&#34;src src-nix&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;{ config&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; pkgs&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; lib&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt; }:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;{ config&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; pkgs&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; lib&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt; }:
 {
   systemd&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;services&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;wg-quick-wg0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
     requires &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;network-online.target&amp;#34;&lt;/span&gt; ];
@@ -62,7 +123,7 @@ Networking: Setup your &lt;code&gt;wg-quick&lt;/code&gt; Interface
 &lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;Define your &lt;code&gt;wg-quick&lt;/code&gt; interface (make sure to replace &lt;code&gt;wg0&lt;/code&gt; with your interface name) and obviously fill in the missing info inside the quotes:&lt;/p&gt;
 &lt;div class=&#34;src src-nix&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;  networking &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;  networking &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; {
     wg-quick&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;interfaces &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
       wg0 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
         address &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; ];
@@ -89,7 +150,7 @@ Kill-Switch: Prevent DNS Leakage!
 &lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-4&#34;&gt;
 &lt;p&gt;When the connection is probable to leaking your DNS, the connection will completely shutdown and prevent any form of network flow unless the systemd-service has been restarted:&lt;/p&gt;
 &lt;div class=&#34;src src-nix&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;        postUp &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;        postUp &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          iptables -I OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT  &amp;amp;&amp;amp; ip6tables -I OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#39;&amp;#39;&lt;/span&gt;;
 
@@ -138,7 +199,7 @@ Procedure
 &lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;p&gt;To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add &lt;code&gt;chrome-gnome-shell&lt;/code&gt; to our installed packages in &lt;code&gt;environment.systemPackages&lt;/code&gt; and later inform the Firefox wrapper to enable chrome-gnome-shell for our Firefox browser:&lt;/p&gt;
 &lt;div class=&#34;src src-nix&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;environment&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;systemPackages &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; [
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;environment&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;systemPackages &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; [
   chrome-gnome-shell
 ];
 
@@ -147,7 +208,7 @@ nixpkgs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;config&lt;span st
 &lt;p&gt;
 This solution does not work for Firefox browsers installed through the Mozilla overlay. Therefore the user ought to link the nix-store generated &lt;code class=&#34;verbatim&#34;&gt;org.gnome.chrome_gnome_shell.json&lt;/code&gt; to &lt;code class=&#34;verbatim&#34;&gt;~/.mozilla/native-messaging-hosts/&lt;/code&gt; everytime &lt;code&gt;chrome-gnome-shell&lt;/code&gt; it has been updated. Not an ideal solution if not automated and one of the several methods used to automate such process is done through appending the following lines to your &lt;code class=&#34;verbatim&#34;&gt;home.nix&lt;/code&gt; to allow Home-Manager to automate the process for you:&lt;/p&gt;
 &lt;div class=&#34;src src-nix&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;home&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;file&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;source &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;pkgs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;chrome-gnome-shell&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/lib/mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&amp;#34;&lt;/span&gt;;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;home&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;file&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;source &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;pkgs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;chrome-gnome-shell&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/lib/mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&amp;#34;&lt;/span&gt;;
     &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;}&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -191,7 +252,7 @@ Defaults
 &lt;/h3&gt;
 &lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;div class=&#34;src src-nix&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;swaylock                                            &lt;span style=&#34;color:#75715e&#34;&gt;# Wayland Screen-locker.&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;swaylock                                            &lt;span style=&#34;color:#75715e&#34;&gt;# Wayland Screen-locker.&lt;/span&gt;
 swayidle                                            &lt;span style=&#34;color:#75715e&#34;&gt;# Idle management.&lt;/span&gt;
 xwayland                                            &lt;span style=&#34;color:#75715e&#34;&gt;# Solution for ancient applications.&lt;/span&gt;
 wl-clipboard                                        &lt;span style=&#34;color:#75715e&#34;&gt;# Wayland clipboard.&lt;/span&gt;
@@ -210,7 +271,7 @@ Theme-related
 &lt;/h3&gt;
 &lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;div class=&#34;src src-nix&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;gtk-engine-murrine
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;gtk-engine-murrine
 gtk_engines
 gsettings-desktop-schemas
 lxappearance&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -225,7 +286,7 @@ Programs
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;div class=&#34;src src-nix&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;programs &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;programs &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;=&lt;/span&gt; {
   qt5ct&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enable &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
   waybar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enable &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
 
@@ -287,7 +348,7 @@ What you need:
 &lt;li&gt;
 &lt;p&gt;&lt;code class=&#34;verbatim&#34;&gt;FileManager Actions&lt;/code&gt; through:&lt;/p&gt;
 &lt;div class=&#34;src src-bash&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo pacman -S filemanager-actions&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo pacman -S filemanager-actions&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -360,12 +421,12 @@ Procedure
 &lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;p&gt;First, convert &lt;code class=&#34;verbatim&#34;&gt;image.jpg&lt;/code&gt; to &lt;code class=&#34;verbatim&#34;&gt;image.pdf&lt;/code&gt; through:&lt;/p&gt;
 &lt;div class=&#34;src src-bash&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;convert image.jpg image.pdf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;convert image.jpg image.pdf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;
 Second, combine &lt;code class=&#34;verbatim&#34;&gt;image.pdf&lt;/code&gt; with &lt;code class=&#34;verbatim&#34;&gt;input.pdf&lt;/code&gt; to produce &lt;code class=&#34;verbatim&#34;&gt;output.pdf&lt;/code&gt; through:&lt;/p&gt;
 &lt;div class=&#34;src src-bash&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pdfunite image.pdf input.pdf output.pdf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pdfunite image.pdf input.pdf output.pdf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -396,7 +457,7 @@ Solution
 &lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;p&gt;To fix this issue you could either run &lt;code&gt;balooctl disable&lt;/code&gt; and later remove the indexing file, created by baloo_file_index, or you could edit &lt;code class=&#34;verbatim&#34;&gt;~/.config/baloofilerc&lt;/code&gt; and append the following lines to the end of the configuration file:&lt;/p&gt;
 &lt;div class=&#34;src src-conf&#34;&gt;
-&lt;pre&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;[General]
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;[General]
 only basic indexing=true&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;
@@ -460,7 +521,7 @@ Rustup
 &lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/rust-lang/rustup/issues/478#issuecomment-331625472&#34;&gt;Exporting &lt;code&gt;cargo&lt;/code&gt; in &lt;code class=&#34;verbatim&#34;&gt;~/.config/fish/config.fish&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;src src-fish&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fish&#34; data-lang=&#34;fish&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;set&lt;/span&gt; PATH $HOME/.cargo/bin $PATH&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fish&#34; data-lang=&#34;fish&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;set&lt;/span&gt; PATH $HOME/.cargo/bin $PATH&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -592,7 +653,7 @@ Current Partition Scheme
 &lt;/h3&gt;
 &lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;div class=&#34;src src-bash&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;arch@archlinux ~&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;$ lsblk
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;arch@archlinux ~&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;$ lsblk
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 loop0    7:0    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  87.9M  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; loop /var/lib/snapd/snap/core/5548
 sda      8:0    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 465.8G  &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; disk
@@ -849,7 +910,7 @@ Temporary Solution:
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
 &lt;div class=&#34;src src-bash&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;su -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ip link set wlp3s0 down &amp;amp;&amp;amp; modprobe -r rtw88_8822be &amp;amp;&amp;amp; modprobe rtw88_8822be &amp;amp;&amp;amp; ip link set wlp3s0 up&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;su -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ip link set wlp3s0 down &amp;amp;&amp;amp; modprobe -r rtw88_8822be &amp;amp;&amp;amp; modprobe rtw88_8822be &amp;amp;&amp;amp; ip link set wlp3s0 up&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -865,7 +926,7 @@ Power-saving Mode
 &lt;/h3&gt;
 &lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;div class=&#34;src src-bash&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pcie_aspm.policy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;powersave&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pcie_aspm.policy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;powersave&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -875,7 +936,7 @@ Performance Mode
 &lt;/h3&gt;
 &lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;div class=&#34;src src-bash&#34;&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pcie_aspm.policy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;performance&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pcie_aspm.policy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;performance&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   
-    <title>Add Cover to PDF :: The Journal of Icy-Thought</title>
+    <title>Debloating Your Android Phone! (NixOS) :: The Journal of Icy-Thought</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" Procedure  First, convert image.jpg to image.pdf through:
-convert image.jpg image.pdf   Second, combine image.pdf with input.pdf to produce output.pdf through:
-pdfunite image.pdf input.pdf output.pdf    " />
+<meta name="description" content="Introduction  Ever wanted to remove the pre-installed applications that came with your phone? Fortunately, there is an easy way to debloat your phone by uninstalling the unnecessary applications installed on your phone rather than disabling them (as suggested by the application manager of your phone).
+  Method    Append programs.adb.enable = true; to your configuration.nix for your NixOS dotfiles.
+  Or install the package through your distro&amp;#39;s package manager." />
 <meta name="keywords" content="Mathematics, Computer Science, Physics, Linux, Biology" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://icy-thought.github.io/Blog/posts/add-cover-to-pdf/" />
+<link rel="canonical" href="https://icy-thought.github.io/Blog/posts/debloating-android-device/" />
 
 
 
@@ -36,17 +36,17 @@ pdfunite image.pdf input.pdf output.pdf    " />
   
     <meta name="twitter:site" content="" />
   
-    <meta name="twitter:creator" content="" />
+    <meta name="twitter:creator" content="Icy-Thought" />
 
 
 
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Add Cover to PDF">
-<meta property="og:description" content=" Procedure  First, convert image.jpg to image.pdf through:
-convert image.jpg image.pdf   Second, combine image.pdf with input.pdf to produce output.pdf through:
-pdfunite image.pdf input.pdf output.pdf    " />
-<meta property="og:url" content="https://icy-thought.github.io/Blog/posts/add-cover-to-pdf/" />
+<meta property="og:title" content="Debloating Your Android Phone! (NixOS)">
+<meta property="og:description" content="Introduction  Ever wanted to remove the pre-installed applications that came with your phone? Fortunately, there is an easy way to debloat your phone by uninstalling the unnecessary applications installed on your phone rather than disabling them (as suggested by the application manager of your phone).
+  Method    Append programs.adb.enable = true; to your configuration.nix for your NixOS dotfiles.
+  Or install the package through your distro&amp;#39;s package manager." />
+<meta property="og:url" content="https://icy-thought.github.io/Blog/posts/debloating-android-device/" />
 <meta property="og:site_name" content="The Journal of Icy-Thought" />
 
   
@@ -57,7 +57,7 @@ pdfunite image.pdf input.pdf output.pdf    " />
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2021-05-05 00:00:00 &#43;0000 UTC" />
+  <meta property="article:published_time" content="2021-12-03 00:00:00 &#43;0000 UTC" />
 
 
 
@@ -147,13 +147,15 @@ pdfunite image.pdf input.pdf output.pdf    " />
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://icy-thought.github.io/Blog/posts/add-cover-to-pdf/">Add Cover to PDF</a></h1>
+    <a href="https://icy-thought.github.io/Blog/posts/debloating-android-device/">Debloating Your Android Phone! (NixOS)</a></h1>
   <div class="post-meta">
     
       <span class="post-date">
-        2021-05-05 
+        2021-12-03 
       </span>
     
+    
+    <span class="post-author">:: Icy-Thought</span>
     
   </div>
 
@@ -167,18 +169,50 @@ pdfunite image.pdf input.pdf output.pdf    " />
         
 <div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
-Procedure
+Introduction
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
-<p>First, convert <code class="verbatim">image.jpg</code> to <code class="verbatim">image.pdf</code> through:</p>
-<div class="src src-bash">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">convert image.jpg image.pdf</code></pre></div>
+<p>Ever wanted to remove the pre-installed applications that came with your phone? Fortunately, there is an easy way to debloat your phone by uninstalling the unnecessary applications installed on your phone rather than disabling them (as suggested by the application manager of your phone).</p>
 </div>
-<p>
-Second, combine <code class="verbatim">image.pdf</code> with <code class="verbatim">input.pdf</code> to produce <code class="verbatim">output.pdf</code> through:</p>
-<div class="src src-bash">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pdfunite image.pdf input.pdf output.pdf</code></pre></div>
 </div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Method
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<ol>
+<li>
+<p>Append <code>programs.adb.enable = true;</code> to your <code class="verbatim">configuration.nix</code> for your NixOS dotfiles.</p>
+<ol>
+<li>
+<p>Or install the package through your distro&#39;s package manager.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Enable &#34;developer settings&#34; through your settings app and later plug-in your phone to your computer.</p>
+</li>
+<li>
+<p>Launch terminal -&gt; <code>adb devices</code> (if device shown) -&gt; <code>adb shell</code> + (from your phone) allow access to your phone.</p>
+</li>
+<li>
+<p><code>pm list packages</code> -&gt; list current installed packages.</p>
+</li>
+<li>
+<p><code>pm list users</code> -&gt; to determine where to uninstall the packages from (normal, work or secure folder)</p>
+</li>
+<li>
+<p><code>pm uninstall -k --user 0 package-name</code> -&gt; uninstall package.</p>
+<ol>
+<li>
+<p>If <code>success</code> was returned = successfully uninstalled package.</p>
+</li>
+<li>
+<p>if <code>unsuccessful</code> either package does not exist or you mistyped the package name.</p>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 </div>
 
@@ -193,17 +227,10 @@ Second, combine <code class="verbatim">image.pdf</code> with <code class="verbat
     </div>
     <div class="pagination__buttons">
         
-        <span class="button previous">
-            <a href="https://icy-thought.github.io/Blog/posts/gnome-menu-options/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Gnome Menu Options</span>
-            </a>
-        </span>
-        
         
         <span class="button next">
-            <a href="https://icy-thought.github.io/Blog/posts/baloo-file-100-cpu-usage/">
-                <span class="button__text">Baloo File 100% Cpu Usage</span>
+            <a href="https://icy-thought.github.io/Blog/posts/nixos-wireguard/">
+                <span class="button__text">Nixos Wireguard</span>
                 <span class="button__icon">→</span>
             </a>
         </span>

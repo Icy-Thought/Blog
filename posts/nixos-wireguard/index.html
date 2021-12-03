@@ -185,7 +185,7 @@ Systemd.service: <code>&#34;wg-quick-wg0&#34;</code>.
 <p>
 Another reason to why I am using the following setup is to add the <code>path</code>, listed in the <code>systemd.services</code>, to the scope which helps me reduce the amount of references required when enabling the kill-switch later on.</p>
 <div class="src src-nix">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">{ config<span style="color:#f92672">,</span> pkgs<span style="color:#f92672">,</span> lib<span style="color:#f92672">,</span> <span style="color:#f92672">...</span> }:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">{ config<span style="color:#f92672">,</span> pkgs<span style="color:#f92672">,</span> lib<span style="color:#f92672">,</span> <span style="color:#f92672">...</span> }:
 {
   systemd<span style="color:#f92672">.</span>services<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;wg-quick-wg0&#34;</span> <span style="color:#f92672">=</span> {
     requires <span style="color:#f92672">=</span> [ <span style="color:#e6db74">&#34;network-online.target&#34;</span> ];
@@ -210,7 +210,7 @@ Networking: Setup your <code>wg-quick</code> Interface
 <div id="outline-text-headline-3" class="outline-text-3">
 <p>Define your <code>wg-quick</code> interface (make sure to replace <code>wg0</code> with your interface name) and obviously fill in the missing info inside the quotes:</p>
 <div class="src src-nix">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">  networking <span style="color:#960050;background-color:#1e0010">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">  networking <span style="color:#960050;background-color:#1e0010">=</span> {
     wg-quick<span style="color:#f92672">.</span>interfaces <span style="color:#f92672">=</span> {
       wg0 <span style="color:#f92672">=</span> {
         address <span style="color:#f92672">=</span> [ <span style="color:#e6db74">&#34;&#34;</span> ];
@@ -237,7 +237,7 @@ Kill-Switch: Prevent DNS Leakage!
 <div id="outline-text-headline-4" class="outline-text-4">
 <p>When the connection is probable to leaking your DNS, the connection will completely shutdown and prevent any form of network flow unless the systemd-service has been restarted:</p>
 <div class="src src-nix">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">        postUp <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#e6db74">&#39;&#39;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">        postUp <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#e6db74">&#39;&#39;
 </span><span style="color:#e6db74">          iptables -I OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT  &amp;&amp; ip6tables -I OUTPUT ! -o wg0 -m mark ! --mark $(wg show wg0 fwmark) -m addrtype ! --dst-type LOCAL -j REJECT
 </span><span style="color:#e6db74">        &#39;&#39;</span>;
 
@@ -270,6 +270,13 @@ Congratulations!
         <hr />
     </div>
     <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="https://icy-thought.github.io/Blog/posts/debloating-android-device/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Debloating Your Android Phone! (NixOS)</span>
+            </a>
+        </span>
         
         
         <span class="button next">

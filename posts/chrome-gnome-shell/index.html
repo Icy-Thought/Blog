@@ -178,7 +178,7 @@ Procedure
 <div id="outline-text-headline-2" class="outline-text-2">
 <p>To enable the installation of Gnome extension on the Firefox browser installed from nixpkgs we are required to add <code>chrome-gnome-shell</code> to our installed packages in <code>environment.systemPackages</code> and later inform the Firefox wrapper to enable chrome-gnome-shell for our Firefox browser:</p>
 <div class="src src-nix">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">environment<span style="color:#f92672">.</span>systemPackages <span style="color:#960050;background-color:#1e0010">=</span> [
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">environment<span style="color:#f92672">.</span>systemPackages <span style="color:#960050;background-color:#1e0010">=</span> [
   chrome-gnome-shell
 ];
 
@@ -187,7 +187,7 @@ nixpkgs<span style="color:#f92672">.</span>config<span style="color:#f92672">.</
 <p>
 This solution does not work for Firefox browsers installed through the Mozilla overlay. Therefore the user ought to link the nix-store generated <code class="verbatim">org.gnome.chrome_gnome_shell.json</code> to <code class="verbatim">~/.mozilla/native-messaging-hosts/</code> everytime <code>chrome-gnome-shell</code> it has been updated. Not an ideal solution if not automated and one of the several methods used to automate such process is done through appending the following lines to your <code class="verbatim">home.nix</code> to allow Home-Manager to automate the process for you:</p>
 <div class="src src-nix">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">home<span style="color:#f92672">.</span>file<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;.mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&#34;</span><span style="color:#f92672">.</span>source <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>pkgs<span style="color:#f92672">.</span>chrome-gnome-shell<span style="color:#e6db74">}</span><span style="color:#e6db74">/lib/mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nix" data-lang="nix">home<span style="color:#f92672">.</span>file<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;.mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&#34;</span><span style="color:#f92672">.</span>source <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>pkgs<span style="color:#f92672">.</span>chrome-gnome-shell<span style="color:#e6db74">}</span><span style="color:#e6db74">/lib/mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json&#34;</span>;
     <span style="color:#960050;background-color:#1e0010">}</span>;</code></pre></div>
 </div>
 </div>
